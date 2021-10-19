@@ -1,6 +1,6 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) { //check if the session already exists or not;
-    session_start();
+    session_start(); ///////
 }
     
     if (empty($_SESSION['username'])) {
