@@ -3,7 +3,7 @@
     
     session_start(); // staring a new session
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
-      header('location:/final-php/index.php');//checking if the session is already started, if so it will be redirected to to home page
+      header('location:/'.basename(__DIR__).'/index.php');//checking if the session is already started, if so it will be redirected to to home page
       exit;
     }
     if($_SERVER['REQUEST_METHOD'] === 'POST'){ // it is very important to check if the http method is the post request, to avoid redering errors if we reload page which uses get method;
@@ -37,7 +37,7 @@
                 $_SESSION['loggedin'] = true;
                 $_SESSION['id'] = $id;
                 $_SESSION['username'] = $usern;
-                header('location:/final-php/index.php');//redirect to home page;           
+                header('location:/'.basename(__DIR__).'/index.php');//redirect to home page;           
                 }else{
                   $login_err = 'Le nom d\'utilisateur ou le mot de passe sont incorrects';
                 }
@@ -72,7 +72,7 @@
 <body>
 <?php include_once('./header.php') ?>
     <section class="section-form">
-    <form class="form" action="/final-php/login.php"  method="POST">
+    <form class="form" action=<?php echo '/'.basename(__DIR__).'/login.php'?>  method="POST">
     <h2 style="color:red;"><?php
     if(!empty($login_err)){
       echo $login_err;
@@ -99,7 +99,7 @@
     </span>
   </div>
   <button type="submit" class="btn btn-primary">Se connecter</button>
-  <a href="/final-php/signup.php" class="btn btn-primary">Vous n'avez pas ncore un compte ? s'inscrire ici</a>
+  <a href=<?php echo '/'.basename(__DIR__).'/signup.php'?> class="btn btn-primary">Vous n'avez pas ncore un compte ? s'inscrire ici</a>
 </form>
     </section>
 </body> 

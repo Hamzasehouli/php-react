@@ -4,7 +4,7 @@ include('./session.php'); //inlude the session code in order to check if the ses
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <div><a class="navbar-brand anch" href="/final-php/index.php">PHP auth project</a></div>
+    <div><a class="navbar-brand anch" href=<?php echo '/'.basename(__DIR__).'/index.php' ?>>PHP auth project</a></div>
     <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span> -->
     <!-- </button> -->
@@ -13,9 +13,9 @@ include('./session.php'); //inlude the session code in order to check if the ses
         <?php
         if(empty($_SESSION['username'])){ //cehck if username exists and set in the session variable
 
-          echo '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/final-php/login.php">Se connecter</a></li>';
+          echo '<li class="nav-item"><a class="nav-link active" aria-current="page" href="/'.basename(__DIR__).'/login.php">Se connecter</a></li>';
           echo '<li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/final-php/signup.php">S\'inscrire</a>
+          <a class="nav-link active" aria-current="page" href="/'.basename(__DIR__).'/signup.php">S\'inscrire</a>
         </li>';
         }else{
           echo '';
@@ -24,7 +24,7 @@ include('./session.php'); //inlude the session code in order to check if the ses
          <?php
         if(!empty($_SESSION['username'])){
           echo '<li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/final-php/logout.php">Se deconnecter</a>
+          <a class="nav-link active" aria-current="page" href="/'.basename(__DIR__).'/logout.php">Se deconnecter</a>
         </li>';
         }else{
           echo '';

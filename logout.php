@@ -9,6 +9,6 @@ $_SESSION = array();// Unset all of the session variables the were stored during
 session_destroy(); // Destroy the session.
  
 
-header("location: /final-php/login.php"); // Redirect to login page
+header('location: /'.basename(__DIR__).'/login.php'); // Redirect to login page
 exit;
 ?>
