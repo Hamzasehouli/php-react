@@ -23,6 +23,27 @@
     }
 
     if(empty($username_err) && empty($email_err) && empty($password_err) ){
+      $query= 'SELECT username FROM user WHERE username = :username';
+      $query_email= 'SELECT email FROM user WHERE email = :email';
+      $check=$con->prepare($query);
+      $check_email=$con->prepare($query_email);
+      $check->bindValue(':username', $username);
+      $check_email->bindValue(':email', $email);
+      $check->execute();
+      $check_email->execute();
+     
+      if($check->rowCount() > 0){
+        session_start();
+        $_SESSION['err']='403, l\'utilisateur saisi est déjà utilisé';
+        header('location:/error.php');
+        exit();
+      }
+      if($check_email->rowCount() > 0){
+        session_start();
+        $_SESSION['err']='403, l\'email saisi est déjà utilisé';
+        header('location:/error.php');
+        exit();
+      }
       $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
       //prepare the insert statement
       $statement = $con->prepare('INSERT INTO user(username, email, password) VALUES(:username, :email, :password)');
