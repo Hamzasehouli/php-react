@@ -83,14 +83,14 @@ if(!empty($state)){
     session_start();
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
-    header('location:/'.basename(__DIR__).'/index.php');
+    header('location:./index.php');
   }else{
     echo '<div class="state">Sorry there was an error sending your message. Please try again later</div>';
   }
 }
 ?></h1>
     <section class="section-form">
-    <form class="form" action=<?php echo '/'.basename(__DIR__).'/signup.php'?> method="POST">
+    <form class="form" action=<?php echo './signup.php'?> method="POST">
     
   <div class="mb-3">
     <label for="username" class="form-label">Nom d'utilisateur</label>
@@ -113,7 +113,7 @@ if(!empty($state)){
     } ?></p>
   </div>
   <button type="submit" class="btn btn-primary">S'inscrire</button>
-  <a href=<?php echo '/'.basename(__DIR__).'/login.php'?> class="btn btn-primary">Vous avez deja un compte ? se connecter ici</a>
+  <a href=<?php echo './login.php'?> class="btn btn-primary">Vous avez deja un compte ? se connecter ici</a>
 </form>
     </section>
 </body>
