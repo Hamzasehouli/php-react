@@ -58,49 +58,54 @@
     }
     include('./session.php');
  ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
-<?php include_once('./header.php') ?>
+    <?php include_once('./header.php') ?>
     <section class="section-form">
-    <form class="form" action=<?php echo 'login.php'?>  method="POST">
-    <h2 style="color:red;"><?php
+        <form class="form" action=<?php echo 'login.php'?> method="POST">
+            <h2 style="color:red;"><?php
     if(!empty($login_err)){
       echo $login_err;
     }
     ?></h2>
-  <div class="mb-3">
-    <label for="username" class="form-label">Nom d'utilisateur</label>
-    <input name="username" type="text" class="form-control" id="username" aria-describedby="emailHelp">
-    <span><?php
+            <div class="mb-3">
+                <label for="username" class="form-label">Nom d'utilisateur</label>
+                <input name="username" type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                <span><?php
     if(!empty($username_err)){
       echo $username_err;
     }
     ?>
-    </span>
-  </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input name="password" type="password" class="form-control" id="password"> <span>
-      <?php
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input name="password" type="password" class="form-control" id="password"> <span>
+                    <?php
     if(!empty($password_err)){
         echo $password_err;
     }
     ?>
-    </span>
-  </div>
-  <button type="submit" class="btn btn-primary">Se connecter</button>
-  <a href=<?php echo 'signup.php'?> class="btn btn-primary">Vous n'avez pas ncore un compte ? s'inscrire ici</a>
-</form>
+                </span>
+            </div>
+            <button type="submit" class="btn btn-primary">Se connecter</button>
+            <a href=<?php echo 'signup.php'?> class="btn btn-primary">Vous n'avez pas ncore un compte ? s'inscrire
+                ici</a>
+        </form>
     </section>
-</body> 
+</body>
+
 </html>
