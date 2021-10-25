@@ -27,7 +27,7 @@
             if($statement->rowCount() === 1){//rowCount will render the number of rows found related to the used query after INSESRT, DELETE and UPDATE methods;
              
               if($row = $statement->fetch()){ // fetch the existed user and store it into row variable
-                $id=$row['ID'];
+                $id=$row['id'];
                 $usern=$row['username'];
                 $hashed_password = $row['password'];
                 //cehck if the stored password in DB is te same as the entered plain password ny the user;

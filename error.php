@@ -1,5 +1,6 @@
 <?php
 include_once('./error.php');
+include_once('./session.php');
 ?>
 
 <!DOCTYPE html>
