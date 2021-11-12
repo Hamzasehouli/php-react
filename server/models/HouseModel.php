@@ -15,6 +15,7 @@ class HouseModel
     public $discret = '';
     public $state = '';
     //ff
+    //DDD
     public function find($con)
     {
         $stmt = $con->prepare('SELECT * FROM houses');
