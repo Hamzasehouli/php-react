@@ -3,6 +3,7 @@
 namespace app\config;
 
 use PDO;
+use PDOException;
 
 class Database
 {
@@ -16,9 +17,14 @@ class Database
 
     public function connect()
     {
-        $this->con = new PDO("mysql:host=$this->host;port=$this->port;dbname=$this->dbname", $this->username, $this->password);
-        $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $this->con;
+        try {
+            $this->con = new PDO("mysql:host=$this->host;port=$this->port;dbname=$this->dbname", $this->username, $this->password);
+            $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            return $this->con;
+        } catch (PDOException $e) {
+            print_r($e->getMessage());
+        }
     }
 
 }

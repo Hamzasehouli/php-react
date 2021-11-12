@@ -1,5 +1,7 @@
 <?php
 
+namespace app\models;
+
 class HouseModel
 {
     public $id = '';
@@ -14,8 +16,7 @@ class HouseModel
     public $type = '';
     public $discret = '';
     public $state = '';
-    //ff
-    //DDD
+
     public function find($con)
     {
         $stmt = $con->prepare('SELECT * FROM houses');
@@ -23,7 +24,7 @@ class HouseModel
     }
     public function create($con)
     {
-        $stmt = $con->prepare('INSERT INTO houses (title, price, city, adresse, images,description,user,area,type,discret,state) VALUES(:title, :price, :city, :adresse,:images,:description,:user,:area,:type,:discret,:state)');
+        $stmt = $con->prepare('INSERT INTO houses(title, price, city, adresse,description,user,area,type,discret,state) VALUES(:title, :price, :city, :adresse,:description,:user,:area,:type,:discret,:state)');
         return $stmt;
     }
     public function findOne($con)
